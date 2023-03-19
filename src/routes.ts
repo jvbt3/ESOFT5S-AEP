@@ -1,6 +1,7 @@
 // 14 - Estamos importando a Classe Router de express
 import { Router } from 'express'
 import healthCheckController from './controller/healthCheckController'
+import productsController from './controller/productsController'
 import userController from './controller/userController'
 
 // 15 - Estamos criando uma constante chamada routes que recebe Router()
@@ -10,6 +11,10 @@ const routes = Router()
 // e passando como parametro, o nome da rota, e o que ela deve executar ao ser chamada
 routes.get('/health-check', healthCheckController.check)
 routes.get('/users', userController.list)
+
+routes.post('/products', productsController.create)
+routes.get('/products', productsController.list)
+routes.get('/products-stock', productsController.productStock)
 
 // 17 - Estamos exportando a constante routes
 export default routes
